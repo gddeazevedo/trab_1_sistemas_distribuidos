@@ -1,14 +1,13 @@
 package org.cefet.sd.services.requestSender;
 
+import org.cefet.sd.providers.LoadBalancerProvider;
 
 public abstract class BaseRequestSender {
-    protected final int loadBalancerPort;
-    protected final String loadBalancerIp;
+    protected final LoadBalancerProvider loadBalancerProvider;
 
     public BaseRequestSender() {
-        this.loadBalancerPort = 5000;
-        this.loadBalancerIp   = "0.0.0.0";
+        this.loadBalancerProvider = new LoadBalancerProvider();
     }
 
-    abstract void send();
+    public abstract void send();
 }

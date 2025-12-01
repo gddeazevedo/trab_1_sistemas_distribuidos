@@ -22,7 +22,7 @@ public class ClientTask {
 
     public void execute() {
         double probability = random.nextDouble();
-        IO.println("Prob: " + probability);
+
         if (probability < PROBABILITY_BOUND) {
             writeSenderService.send();
         } else {

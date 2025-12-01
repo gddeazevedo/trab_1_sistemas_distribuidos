@@ -8,7 +8,8 @@ import java.net.Socket;
 public class ReadRequestSenderService extends BaseRequestSender {
     @Override
     public void send() {
-        boolean mustAutoFlush = true;;
+        boolean mustAutoFlush = true;
+        
         try {
             var socket            = new Socket(this.loadBalancerIp, this.loadBalancerPort);
             var printWriter       = new PrintWriter(socket.getOutputStream(), mustAutoFlush);

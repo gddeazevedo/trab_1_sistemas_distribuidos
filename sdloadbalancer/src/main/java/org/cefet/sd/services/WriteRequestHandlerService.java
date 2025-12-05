@@ -7,25 +7,23 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.net.Socket;
 import java.io.PrintWriter;
+import org.cefet.sd.providers.ServerProvider;
 
 
 public class WriteRequestHandlerService {
     private final HashMap<String, Integer> servers;
+    private final ServerProvider serverProvider;
 
     public WriteRequestHandlerService(HashMap<String, Integer> servers) {
         this.servers = servers;
+        this.serverProvider = new ServerProvider();
     }
 
-    public void sendRequestAtRandom(String message) throws IOException {
+    public void sendRequestAtRandom(String message) {
         var chosenServer = this.getServerAtRandom();
-
         String host = chosenServer.getKey();
         int port = chosenServer.getValue();
-
-        var socket = new Socket(host, port);
-        var printWriter = new PrintWriter(socket.getOutputStream(), true);
-        printWriter.println(message);
-        socket.close();
+        this.serverProvider.sendMessage(host, port, message);
     }
 
     private Map.Entry<String, Integer> getServerAtRandom() {

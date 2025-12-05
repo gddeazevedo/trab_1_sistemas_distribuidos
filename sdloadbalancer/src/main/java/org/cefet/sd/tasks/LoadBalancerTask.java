@@ -9,15 +9,19 @@ import java.net.Socket;
 import org.cefet.sd.services.RequestHandlerService;
 
 public class LoadBalancerTask {
+    private final int port;
     private final RequestHandlerService requestHandlerService;
 
-    public LoadBalancerTask(HashMap<String, Integer> servers) {
+    public LoadBalancerTask(int port, HashMap<String, Integer> servers) {
+        this.port = port;
         this.requestHandlerService = new RequestHandlerService(servers);
     }
 
-    public void execute(ServerSocket server) throws IOException {
+    public void execute() throws IOException {
+        var serverSocket = new ServerSocket(port);
+        System.out.println("Load Balancer running at port " + port);
         while (true) {
-            Socket request = server.accept();
+            Socket request = serverSocket.accept();
             var inputStreamReader = new InputStreamReader(request.getInputStream());
             var bufferedReader = new BufferedReader(inputStreamReader);
             String message = bufferedReader.readLine();

@@ -16,10 +16,8 @@ public class Main {
         servers.put("127.0.0.2", 5003);
 
         try {
-            var serverSocket = new ServerSocket(port);
-            System.out.println("Load Balancer running at port " + port);
-            LoadBalancerTask loadBalancerTask = new LoadBalancerTask(servers);
-            loadBalancerTask.execute(serverSocket);
+            LoadBalancerTask loadBalancerTask = new LoadBalancerTask(port, servers);
+            loadBalancerTask.execute();
         } catch (IOException e) {
             System.out.println("An error occured: " + e.getMessage());
         }

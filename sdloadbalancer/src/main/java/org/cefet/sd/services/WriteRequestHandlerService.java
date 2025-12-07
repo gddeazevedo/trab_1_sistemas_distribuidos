@@ -2,11 +2,8 @@ package org.cefet.sd.services;
 
 import java.util.HashMap;
 import java.util.Random;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
-import java.net.Socket;
-import java.io.PrintWriter;
 import org.cefet.sd.providers.ServerProvider;
 
 

@@ -20,7 +20,7 @@ public class WriteRequestSenderService extends BaseRequestSender {
     public void send() {
         int firstNumber  = random.nextInt(LOWER_BOUND, UPPER_BOUND);
         int secondNumber = random.nextInt(LOWER_BOUND, UPPER_BOUND);
-        String message = "ESCRITA|" + firstNumber + "|" + secondNumber;
+        String message = "ESCREVER|" + firstNumber + "|" + secondNumber;
 
         System.out.println("Sending request: " + message);
 

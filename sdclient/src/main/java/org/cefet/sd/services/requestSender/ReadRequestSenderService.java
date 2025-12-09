@@ -4,10 +4,9 @@ public class ReadRequestSenderService extends BaseRequestSender {
     @Override
     public void send() {
         try {
-            String message = "LEITURA";
+            String message = "LER";
             System.out.println("Sending request: " + message);
-            String response = this.loadBalancerProvider.sendRequest(message);
-            System.out.println("Leitura recebida: " + response);
+            this.loadBalancerProvider.sendRequest(message);
         } catch (Exception e) {
             System.out.println("Erro ao enviar leitura: " + e.getMessage());
         }

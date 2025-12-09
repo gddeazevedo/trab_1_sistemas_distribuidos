@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class RequestHandlerService {
-    private static final String READ  = "LEITURA";
-    private static final String WRITE = "ESCRITA";
+    private static final String READ  = "LER";
+    private static final String WRITE = "ESCREVER";
 
     private final ReadRequestHandlerService readRequestHandlerService;
     private final WriteRequestHandlerService writeRequestHandlerService;

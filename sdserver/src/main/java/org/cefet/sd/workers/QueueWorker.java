@@ -30,11 +30,20 @@ public class QueueWorker extends Thread implements MessageTypes {
                 }
 
                 var message = writeRequestQueue.take();
-                this.writeTask.handle(message);
+                new Thread(() -> processWrite(message)).start();
             } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());
                 e.printStackTrace();
             }
+        }
+    }
+
+    private void processWrite(String message) {
+        try {
+            Thread.sleep(100 + (int)(Math.random() * 100));
+            writeTask.handle(message);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

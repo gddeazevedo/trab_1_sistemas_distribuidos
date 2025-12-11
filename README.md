@@ -4,9 +4,13 @@ Sistema distribuído com Load Balancer, Client e Servidores Backend.
 
 ## Pré-requisitos
 
+### Execução Local (sem Docker)
 - Java 25
 - Maven 3.9+
-- Docker e Docker Compose (para execução containerizada)
+
+### Execução com Docker (recomendado)
+- Docker
+- Docker Compose
 
 ---
 

@@ -10,8 +10,8 @@ import org.cefet.sd.workers.ServerWorker;
 import org.cefet.sd.helpers.ServersManager;
 
 
-public class Server {
-    static void main(String[] args) {
+public class Main {
+    public static void main(String[] args) {
         int port = Integer.parseInt(System.getenv("PORT"));
 
         var lock = new ReentrantLock();

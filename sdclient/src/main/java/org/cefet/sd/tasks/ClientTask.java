@@ -3,12 +3,13 @@ package org.cefet.sd.tasks;
 import java.util.Random;
 import org.cefet.sd.services.requestSender.ReadRequestSenderService;
 import org.cefet.sd.services.requestSender.WriteRequestSenderService;
+import org.cefet.sd.utils.TimestampUtils;
 
 
 public class ClientTask {
     private static final double PROBABILITY_BOUND = 0.5;
     private static final int SLEEP_MS_LOWER_BOUND = 20;
-    private static final int SLEEP_MS_UPPER_BOUND = 51; // 51 because in nextInt the second argument is exclusive
+    private static final int SLEEP_MS_UPPER_BOUND = 51;
 
     private final Random random;
     private final ReadRequestSenderService readSenderService;
@@ -31,9 +32,10 @@ public class ClientTask {
 
         try {
             int sleepTime = random.nextInt(SLEEP_MS_LOWER_BOUND, SLEEP_MS_UPPER_BOUND);
+            TimestampUtils.log("Cliente dormindo por " + sleepTime + "ms...");
             Thread.sleep(sleepTime);
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            TimestampUtils.log("Error: " + e.getMessage());
         }
     }
 }

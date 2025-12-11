@@ -25,8 +25,9 @@ public class QueueWorker extends Thread implements MessageTypes {
                 }
 
                 if (!ServersManager.verifyConsistency()) {
-                    System.out.println("Waiting for cosistency");
+                    System.out.println("Waiting for consistency");
                     Thread.sleep(100);
+                    continue;
                 }
 
                 var message = writeRequestQueue.take();

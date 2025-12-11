@@ -74,9 +74,9 @@ public class ServersManager implements MessageTypes {
         String serversEnv = System.getenv("OTHER_SERVERS");
 
         if (serversEnv == null || serversEnv.isEmpty()) {
-            allServers.put("localhost", 5001);
-            allServers.put("127.0.0.1", 5002);
-            allServers.put("127.0.0.2", 5003);
+            allServers.put("127.0.0.1", 5001);
+            allServers.put("127.0.0.2", 5002);
+            allServers.put("127.0.0.3", 5003);
         }
 
         String[] serverList = serversEnv.split(",");
